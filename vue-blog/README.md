@@ -8,6 +8,7 @@
 # install dependencies
 npm install
 npm node-sass
+npm install vue-router
 # serve with hot reload at localhost:8080
 npm run dev
 
