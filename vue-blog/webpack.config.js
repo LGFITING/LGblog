@@ -28,7 +28,22 @@ module.exports = {
         options: {
           name: '[name].[ext]?[hash]'
         }
-      }
+      },
+      {
+        test: /\.style$/,
+        loader: 'style-loader',
+        exclude: /node_modules/
+     },
+     {
+        test: /\.css$/,
+        loader: 'css-loader',
+        exclude: /node_modules/
+     },
+     {
+        test: /\.scss$/,
+       loader: 'sass-loader',
+       exclude: /node_modules/
+     }
     ]
   },
   resolve: {
