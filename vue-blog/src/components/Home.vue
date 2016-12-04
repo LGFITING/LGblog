@@ -1,6 +1,6 @@
 <template class="Home">
   <div class="wrapper">
-  <div>
+  <div class="content-title">
     {{msg}}
   </div>
 </div>
@@ -9,11 +9,11 @@
   export default{
     data(){
       return{
-        msg:'Home'
+        msg:'博文'
       }
     }
   }
 </script>
-<style media="screen">
+<style scoped>
 
 </style>

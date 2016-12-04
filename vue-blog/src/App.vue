@@ -2,6 +2,7 @@
   <div id="app">
 <header>
    <div id="header">
+         <!-- <img src="../static/images/lg.jpg" alt="ME" width="100" id="ME"> -->
   <div class="defind">
     <h3>肆的博客</h3>
     <p>github地址：
@@ -57,12 +58,27 @@ export default {
   padding: 0;
 }
 body{
-  background: #e7eef4;
+  background: #E7EEF4;
   font-size: "微软雅黑","黑体";
+}
+h1, h2 {
+  font-weight: normal;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: inline-block;
+  margin: 0 10px;
 }
 a{
   text-decoration: none;
+  color: #42b983;
 }
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -106,28 +122,28 @@ a{
 #content{
   border: 1px solid red;
   width:960px;
-  height: 500px;
+  height: 600px;
   padding: 10px;
   margin: 300px auto;
+}
+.wrapper{
+  width: 726px;
+  height: 600px;
+  margin-left: 232px;
+  margin-top: -501px;
+  border: 1px solid red;
+}
+.content-title{
+  background: #ECECEC;
+  height: 20px;
+  vertical-align: middle;
+  color: #66666a;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 3px;
+  line-height: 22px;
+}
 
-}
-h1, h2 {
-  font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
 .fade-transition {
  transition: opacity .3s ease;
 }

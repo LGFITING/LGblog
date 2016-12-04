@@ -1,6 +1,6 @@
 <template class="Service">
   <div class="wrapper">
-  <div>
+  <div class="content-title">
     {{msg}}
   </div>
 </div>

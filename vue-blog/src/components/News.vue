@@ -1,6 +1,6 @@
 <template class="News">
     <div class="wrapper">
-  <div>
+  <div class="content-title">
       {{msg}}
   </div>
 </div>
@@ -9,7 +9,7 @@
   export default{
     data(){
       return{
-        msg:'News'
+        msg:'图文心情'
       }
     }
   }

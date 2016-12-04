@@ -1,6 +1,6 @@
 <template class="Aboutus">
   <div class="wrapper">
-  <div>
+  <div class="content-title">
     {{msg}}
   </div>
 </div>
@@ -9,7 +9,7 @@
   export default{
     data(){
       return{
-        msg:'Aboutus'
+        msg:'关于我'
       }
     }
   }
