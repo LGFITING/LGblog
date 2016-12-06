@@ -100,6 +100,7 @@ a{
   position: relative;;
   left: 300px;
   top: 130px;
+  width: 500px;
 }
 .defind p{
   font-size: 12px;
