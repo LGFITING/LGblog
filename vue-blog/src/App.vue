@@ -124,7 +124,7 @@ a{
   width:960px;
   height: 600px;
   padding: 10px;
-  margin: 300px auto;
+  margin: 350px auto;
 }
 .wrapper{
   width: 726px;

@@ -4,7 +4,7 @@
     <p>
       个人资料
     </p>
-    <img src="./lg.jpg" alt="ME" width="100" id="ME">
+    <img src="static/images/lg.jpg" alt="ME" width="100" id="ME">
   </div>
   <div class="">
 
