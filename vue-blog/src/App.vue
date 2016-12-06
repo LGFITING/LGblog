@@ -22,7 +22,7 @@
 </header>
 <content>
   <div id="content">
-  <xivprofile></xivprofile>
+  <xivprofile name="刘贯"></xivprofile>
     <router-view keep-alive transition="fade" transition-mode='out-in'></router-view>
   </div>
 </content>
@@ -78,7 +78,10 @@ a{
   text-decoration: none;
   color: #42b983;
 }
-
+p{
+    margin: 4px;
+    font-size: 14px;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -133,6 +136,7 @@ a{
   margin-left: 232px;
   margin-top: -501px;
   border: 1px solid red;
+  padding: 10px;
 }
 .content-title{
   background: #ECECEC;

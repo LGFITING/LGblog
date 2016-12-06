@@ -6,8 +6,9 @@
     </p>
     <img src="static/images/lg.jpg" alt="ME" width="100" id="ME">
   </div>
-  <div class="">
-
+  <!-- 父子通信 -->
+  <div class="" id="my">
+        姓名：{{name}}
   </div>
 </div>
 </template>
@@ -17,7 +18,8 @@
       return{
         msg:'Service'
       }
-    }
+  },
+  props:["name"]
   }
 </script>
 <style media="screen" scoped>
