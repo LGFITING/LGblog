@@ -1,9 +1,11 @@
 <template class="News">
+    <transition name="fade">
     <div class="wrapper">
-  <div class="content-title">
-      {{msg}}
-  </div>
+        <div class="content-title">
+                {{msg}}
+        </div>
 </div>
+  </transition>
 </template>
 <script type="text/javascript">
   export default{
@@ -14,8 +16,6 @@
     }
   }
 </script>
-<style media="screen">
-div{
+<style media="screen" scoped>
 
-}
 </style>

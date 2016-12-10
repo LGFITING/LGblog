@@ -1,4 +1,5 @@
 <template class="Home">
+<transition name="fade">
   <div class="wrapper">
   <div class="content-title">
     {{msg}}
@@ -44,6 +45,7 @@
 &lt;/script&gt;
 </pre>
 </div>
+</transition>
 </template>
 <script type="text/javascript">
   export default{
@@ -55,5 +57,8 @@
   }
 </script>
 <style scoped>
+ *{
+     font-family: '微软雅黑';
+ }
 
 </style>

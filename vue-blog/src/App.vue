@@ -10,11 +10,11 @@
     </p>
     <ul>
       <li><router-link to="/home">首页</router-link></li>
-      <li><a href="#">|</a></li>
+      <li><span>|</span></li>
       <li>  <router-link to="/product">博文目录</router-link></li>
-      <li><a href="#">|</a></li>
+      <li><span>|</span></li>
       <li>  <router-link to="/news">图文心情</router-link></li>
-      <li><a href="javascript:return false;">|</a></li>
+      <li><span>|</span></li>
       <li><router-link to="/aboutus">关于我</router-link></li>
     </ul>
   </div>
@@ -136,7 +136,6 @@ p{
   margin-left: 232px;
   margin-top: -501px;
   border: 1px solid red;
-  padding: 10px;
 }
 .content-title{
   background: #ECECEC;
@@ -149,10 +148,10 @@ p{
   line-height: 22px;
 }
 
-.fade-transition {
- transition: opacity .3s ease;
+.fade-enter-active {
+ transition: opacity .5s ease;
 }
-.fade-enter, .fade-leave {
+.fade-enter, .fade-leave-active {
  opacity: 0;
 }
 </style>

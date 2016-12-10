@@ -7,7 +7,7 @@
     <img src="static/images/lg.jpg" alt="ME" width="100" id="ME">
   </div>
   <!-- 父子通信 -->
-  <div class="" id="my">
+  <div class="" id="my" v-if="seen">
         姓名：{{name}}
   </div>
 </div>
@@ -16,7 +16,8 @@
   export default{
     data(){
       return{
-        msg:'Service'
+        msg:'Service',
+        seen:true
       }
   },
   props:["name"]
