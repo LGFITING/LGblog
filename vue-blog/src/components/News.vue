@@ -25,6 +25,13 @@
         textContent:null
       }
   },
+  ready(){
+        this.$http.post('url').then((response) => {
+            //success
+        },(response) => {
+            //error
+        });
+  },
   methods:{
       openReport:function(){
           this.showArea = true;
