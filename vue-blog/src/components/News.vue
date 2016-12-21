@@ -40,7 +40,7 @@
           this.textContent = this.$refs.textarea.value;
           article.setAttribute("style","background:#fff;margin:20px 0px;text-indent:2em;line-height:20px;font-size16px;padding:4px;");
           article.innerHTML = this.textContent;
-
+          this.showArea = false;
       }
   }
   }

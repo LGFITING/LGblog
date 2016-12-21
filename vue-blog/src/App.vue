@@ -130,7 +130,7 @@ p{
   height: 600px;
   margin-left: 232px;
   margin-top: -501px;
-  border: 1px solid red;
+  /*border: 1px solid red;*/
   overflow: auto;
 }
 .content-title{

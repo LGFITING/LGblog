@@ -45,7 +45,7 @@
     }
         window.onscroll = function () {
         if (getScrollTop() + getClientHeight() == getScrollHeight()) {
-        	str = '<ul style="width:100px;height:200px;border:1px solid red;"><li>11111111</li></ul>';
+        	str = '&lt;ul style="width:100px;height:200px;border:1px solid red;"&gt;&lt;li&gt;11111111&lt;/li&gt;&lt;/ul&gt;';
         	document.getElementById('main').innerHTML += str;
         }
     }
