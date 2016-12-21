@@ -1,8 +1,11 @@
-<template class="Product">
+<template class="Catalog">
  <transition name="fade">
   <div class="wrapper">
   <div class="content-title">
     {{msg}}
+  </div>
+  <div class="content">
+
   </div>
 </div>
  </keep-alive>

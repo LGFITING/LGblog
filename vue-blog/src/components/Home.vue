@@ -5,6 +5,14 @@
     {{msg}}
   </div>
 <p>原生的上拉加载</p>
+<p v-bind:title="message">鼠标悬停显示提示信息</p>
+<p>Computed（计算属性依赖缓存，只要值没有变化，那么方法就不会执行也得到同样的结果）:{{testFunction}}</p>
+<p>{{fullName}}</p>
+<p>{{thefullName}}</p>
+<p>{{thefullName2}}</p>
+<button v-on:click="add">点击次数:{{counter}}</button>
+<br>
+<!-- <input v-bind:value="something" v-on:input="something = $event.target.value"> -->
 <pre>
 &lt;script&gt;
  //获取滚动条当前的位置
@@ -37,8 +45,8 @@
     }
         window.onscroll = function () {
         if (getScrollTop() + getClientHeight() == getScrollHeight()) {
-        	<!-- str = '<ul style="width:100px;height:200px;border:1px solid red;"><li>11111111</li></ul>';
-        	document.getElementById('main').innerHTML += str; -->
+        	str = '<ul style="width:100px;height:200px;border:1px solid red;"><li>11111111</li></ul>';
+        	document.getElementById('main').innerHTML += str;
         }
     }
         //ajax从这里开始
@@ -51,9 +59,45 @@
   export default{
     data(){
       return{
-        msg:'博文'
+        msg:'博文',
+        message:"悬停时间为"+new Date(),
+        firstName:'刘',
+        lastName:'贯',
+        fullName:'刘贯',
+        counter:0
       }
-    }
+  },
+  computed:{
+      testFunction:function () {
+          return this.msg.split('').reverse().join('')
+      },
+      thefullName:function () {
+          return this.firstName+''+this.lastName
+      },
+      thefullName2:{
+          get:function(){
+              return this.firstName+''+this.lastName
+          },
+          set:function (newValue){
+              var names = newValue.split('')
+              this.firstName = names[0]
+              this.lastName = names[name.length-1]
+          }
+      }
+  },
+  watch:{
+      firstName:function(val){
+          this.fullName = val+''+this.lastName
+      },
+      lastName:function (val){
+          this.fullName = this.firstName+ ''+val
+      }
+  },
+  methods:{
+      add:function(){
+          this.counter++
+      }
+  }
   }
 </script>
 <style scoped>

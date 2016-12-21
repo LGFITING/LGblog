@@ -11,7 +11,7 @@
     <ul>
       <li><router-link to="/home">首页</router-link></li>
       <li><span>|</span></li>
-      <li>  <router-link to="/product">博文目录</router-link></li>
+      <li>  <router-link to="/catalog">博文目录</router-link></li>
       <li><span>|</span></li>
       <li>  <router-link to="/news">图文心情</router-link></li>
       <li><span>|</span></li>
@@ -23,22 +23,16 @@
 <content>
   <div id="content">
   <xivprofile name="刘贯"></xivprofile>
+  <!-- <test v-model="price"></test> -->
     <router-view keep-alive transition="fade" transition-mode='out-in'></router-view>
   </div>
 </content>
-  <!-- <router-link to="/home">Home</router-link>
-  <router-link to="/aboutus">Abouts</router-link>
-  <router-link to="/product">Product</router-link>
-  <router-link to="/news">News</router-link>
-  <router-link to="/service">Service</router-link> -->
-  <!-- <router-link to="/foo">Go to Foo</router-link>
-  <router-link to="/bar">Go to Bar</router-link> -->
-  <!-- <router-view keep-alive transition="fade" transition-mode='out-in'></router-view> -->
   </div>
 </template>
 
 <script>
 import xivprofile from './components/Xivprofile.vue';
+import test from './components/Test.vue';
 export default {
   name: 'app',
   data () {
@@ -47,7 +41,8 @@ export default {
     }
   },
     components:{
-      xivprofile
+      xivprofile,
+      test
     }
 }
 </script>
@@ -136,6 +131,7 @@ p{
   margin-left: 232px;
   margin-top: -501px;
   border: 1px solid red;
+  overflow: auto;
 }
 .content-title{
   background: #ECECEC;

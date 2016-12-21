@@ -20,7 +20,10 @@
         seen:true
       }
   },
-  props:["name"]
+  props:["name"],
+  methods:{
+
+  }
   }
 </script>
 <style media="screen" scoped>
