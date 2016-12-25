@@ -3,6 +3,9 @@
 <header>
    <div id="header">
          <!-- <img src="../static/images/lg.jpg" alt="ME" width="100" id="ME"> -->
+<audio loop="loop" autoplay="autoplay">
+  <source src="../static/music/dreamofKing.mp3" type="audio/mp3" />
+</audio>
   <div class="defind">
     <h3>肆的博客</h3>
     <p>github地址：
@@ -76,6 +79,9 @@ a{
 p{
     margin: 4px;
     font-size: 14px;
+}
+audio{
+
 }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
