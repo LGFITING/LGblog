@@ -12,6 +12,10 @@
         <label for="report"><i  id="report" v-on:click="openReport">我要发表</i></label>
         <img src="static/images/report.png" alt="" width="26" style="float:left;">
         <div id="content-con">
+            <div style="margin:30px;">
+                {{test}}
+            </div>
+            <img  :src="imgUrl" alt="" width="100">
         </div>
 </div>
   </transition>
@@ -22,20 +26,17 @@
       return{
         msg:'图文心情',
         showArea:false,
-        textContent:null
+        textContent:null,
+        test:'',
+        imgUrl:''
       }
   },
   ready(){
-        this.$http.post('url').then((response) => {
-            //success
-        },(response) => {
-            //error
-        });
+
   },
   methods:{
       openReport:function(){
           this.showArea = true;
-
       },
       closeArea:function () {
           this.showArea = false;
@@ -50,6 +51,16 @@
               article.innerHTML = this.textContent;
               this.showArea = false;
           }
+          var that=this;
+          that.$http.post('http://localhost/CodeIgniter/index.php/Blog/index'
+                                  ,{"name":'liuguan',"password":123456,'status':1},{emulateJSON:true}).then(function (response) {
+                                      console.log(response)
+                                     let data = JSON.parse(response.body);
+                                      this.test = data.name;
+                                      this.imgUrl = data.url;
+                          }, function (response) {
+
+                });
       }
   }
   }
