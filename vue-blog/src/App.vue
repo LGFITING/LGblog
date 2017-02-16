@@ -29,6 +29,7 @@
   <!-- <test v-model="price"></test> -->
     <router-view keep-alive transition="fade" transition-mode='out-in'></router-view>
   </div>
+   <classify></classify>
 </content>
   </div>
 </template>
@@ -36,6 +37,7 @@
 <script>
 import xivprofile from './components/Xivprofile.vue';
 import test from './components/Test.vue';
+import classify from './components/Classify.vue';
 export default {
   name: 'app',
   data () {
@@ -45,7 +47,8 @@ export default {
   },
     components:{
       xivprofile,
-      test
+      test,
+      classify
     }
 }
 </script>
@@ -98,7 +101,7 @@ audio{
   position: absolute;
   top: 0px;
   background: url('../static/images/sinablogb.jpg') -100px 0px no-repeat;
-  background-position: center top;
+  /*background-position: center top;*/
 }
 .defind{
   position: relative;;
@@ -128,8 +131,10 @@ audio{
   border: 1px solid red;
   width:960px;
   height: 600px;
+ position: relative;
   padding: 10px;
   margin: 350px auto;
+  margin-bottom:0px;
 }
 .wrapper{
   width: 726px;
