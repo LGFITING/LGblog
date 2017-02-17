@@ -37,6 +37,11 @@ class Blog_model extends CI_Model{
         $query = $this->db->where('name',$name);
         $this->db->update('LGblog',array('imgUrl'=>$imgUrl));
     }
+    /**获取文章分类**/
+    function getArticleDepend(){
+        $query = $this->db->get_where('lgblog_db');
+        return $query->row_array();
+    }
 }
 
  ?>

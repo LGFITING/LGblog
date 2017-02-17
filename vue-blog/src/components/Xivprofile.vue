@@ -32,6 +32,7 @@
   width: 220px;
   height: 500px;
   background: #fff;
+    background: #ECECEC;
 }
 .title p{
   background: #ECECEC;

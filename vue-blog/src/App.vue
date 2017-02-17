@@ -128,13 +128,16 @@ audio{
 
 }
 #content{
-  border: 1px solid red;
+  /*border: 1px solid red;*/
+  background: #fff;
   width:960px;
   height: 600px;
- position: relative;
+ position: absolute;
   padding: 10px;
-  margin: 350px auto;
+  margin: 50px auto;
   margin-bottom:0px;
+  margin-left: 290px;
+    /*border: 1px solid red;*/
 }
 .wrapper{
   width: 726px;

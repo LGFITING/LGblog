@@ -1,9 +1,9 @@
 <template class="Classify">
 <div id="article-cate">
-<div class="aa" v-on:click="getSelect">
+<div v-on:click="getSelect">
     {{msg}}：
-    <select v-model="selected">
-        <option v-for="option in options" v-bind:value="option.value" v-bind:id="option.id">
+    <select v-model="selected" :class="classA">
+        <option v-for="option in options" v-bind:value="option.id">
             {{option.text}}
         </option>
     </select>
@@ -15,17 +15,35 @@
     data(){
       return{
         msg:'选择分类',
-         selected: 'A',
-         options: []
+         selected: '',
+         options: [],
+         classA:''
   }
   },
   methods:{
       getSelect:function(){
-          this.options=[{text:'娱乐',value:'A',id:1},{text:'新闻',value:'B',id:2},{text:'科学',value:'C',id:3}];
-          console.log(this);
+          //数据请求
+          var that=this;
+          that.$http.get('http://localhost/CodeIgniter/index.php/Blog/articleDepend'
+                                  ,{emulateJSON:true}).then(function (response) {
+                                      console.log(response)
+                                    //  let data = JSON.parse(response.body);
+                                    //   this.test = data.name;
+                                    //   this.imgUrl = data.url;
+                          }, function (response) {
+
+                });
+          this.options=[{text:'娱乐',value:1,id:1},{text:'新闻',value:2,id:2},{text:'科学',value:3,id:3}];
+          this.classA = 'class-a';
       },
       getId:function(){
 
+      }
+  },
+  watch:{
+      //监听model ,类似于jq中的change
+      selected(){
+          console.log(this.selected);
       }
   }
   }
@@ -33,9 +51,13 @@
 <style scoped>
 /*文章分类*/
 #article-cate{
- border:1px solid red;
  width: 240px;
  height: 300px;
+ position: absolute;
+margin-left:1290px;
+ top:250px;
 }
-
+.class-a{
+    width: 100px;
+}
 </style>
