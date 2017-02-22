@@ -37,10 +37,15 @@ class Blog_model extends CI_Model{
         $query = $this->db->where('name',$name);
         $this->db->update('LGblog',array('imgUrl'=>$imgUrl));
     }
-    /**获取文章分类**/
-    function getArticleDepend(){
-        $query = $this->db->get_where('lgblog_db');
-        return $query->row_array();
+    
+    //获取文章分类
+    public function getArticleDepend(){
+        $query = $this->db->get('articledepend');
+        return $query->result_array();
+    }
+    public function getArticleTitle($article_id){
+        $query = $this->db->get_where('article',array('sort_article_id'=>$article_id));
+        return $query->result_array();
     }
 }
 

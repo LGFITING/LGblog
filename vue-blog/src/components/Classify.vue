@@ -1,13 +1,18 @@
 <template class="Classify">
 <div id="article-cate">
-<div v-on:click="getSelect">
+<div>
     {{msg}}：
     <select v-model="selected" :class="classA">
-        <option v-for="option in options" v-bind:value="option.id">
-            {{option.text}}
+        <option v-for="option in options" v-bind:value="option.sort_article_id">
+            {{option.sort_article_name}}
         </option>
     </select>
 </div>
+<ul class="article">
+  <li v-for="item in items">
+    <a>{{ item.article_name }}</a>
+  </li>
+</ul>
 </div>
 </template>
 <script type="text/javascript">
@@ -15,26 +20,28 @@
     data(){
       return{
         msg:'选择分类',
-         selected: '',
+         selected: 1,
          options: [],
-         classA:''
+         classA:'',
+         items:''
   }
+  },
+  mounted(){
+      //数据请求
+      var that=this;
+      that.$http.get('http://localhost/CodeIgniter/index.php/Blog/articleDepend'
+                              ,{emulateJSON:true}).then(function (response) {
+                                 let data = JSON.parse(response.body);
+                                 this.options = data;
+
+                      }, function (response) {
+
+            });
+      this.classA = 'class-a';
   },
   methods:{
       getSelect:function(){
-          //数据请求
-          var that=this;
-          that.$http.get('http://localhost/CodeIgniter/index.php/Blog/articleDepend'
-                                  ,{emulateJSON:true}).then(function (response) {
-                                      console.log(response)
-                                    //  let data = JSON.parse(response.body);
-                                    //   this.test = data.name;
-                                    //   this.imgUrl = data.url;
-                          }, function (response) {
 
-                });
-          this.options=[{text:'娱乐',value:1,id:1},{text:'新闻',value:2,id:2},{text:'科学',value:3,id:3}];
-          this.classA = 'class-a';
       },
       getId:function(){
 
@@ -43,7 +50,19 @@
   watch:{
       //监听model ,类似于jq中的change
       selected(){
+          //数据请求
           console.log(this.selected);
+          var that=this;
+          that.$http.post('http://localhost/CodeIgniter/index.php/Blog/getArticleTitle'
+                                  ,{"article_id":this.selected},{emulateJSON:true}).then(function (response) {
+                                      let data = JSON.parse(response.body);
+                                      if(data==''){
+                                          data = [{article_name:'无相关文章'}]
+                                      }
+                                      this.items = data;
+                          }, function (response) {
+                              alert('服务器繁忙');
+                });
       }
   }
   }
@@ -59,5 +78,21 @@ margin-left:1290px;
 }
 .class-a{
     width: 100px;
+    height: 20px;
+    line-height:20px;
+}
+.article{
+    text-align:left;
+    margin:8px 5px;
+}
+.article li{
+    margin:2px 5px;
+}
+.article a{
+    color:#194DFB;
+    cursor:pointer;
+}
+.article a:hover{
+    color:#6AC3FF;
 }
 </style>
