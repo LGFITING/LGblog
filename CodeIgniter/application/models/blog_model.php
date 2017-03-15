@@ -9,7 +9,7 @@ class Blog_model extends CI_Model{
     }
 
     public function get_name($name){
-        $query = $this->db->get_where('LGblog',array('name'=>$name));
+        $query = $this->db->get_where('user',array('username'=>$name));
         return $query->row_array();
     }
     public function getpersonalMsg($name){

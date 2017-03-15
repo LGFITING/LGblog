@@ -1,0 +1,53 @@
+<!--LGblog 登录页面 -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>登录测试</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/public/css/apply.css">
+</head>
+
+<body>
+    <div id="applyWrapper">
+        <div id="warn"></div>
+        <div id="triangle"></div>
+        <div id="title">Apply administrator</div>
+        <p style="margin-top:10px;"><span>*</span>用户名：<span class="tips">支持字母或数字开头，下划线</span></p>
+        <input type="text" name="" id="name">
+        <img src="/public/images/right.png" width="40" class="pass" id="regName">
+        <p><span>*</span>密码：</p>
+        <input type="password" name="" id="password">
+        <img src="/public/images/right.png" width="40" class="pass" id="regPassword">
+        <p><span>*</span>邮箱：</p>
+        <input type="text" name="" id="email">
+        <img src="/public/images/right.png" width="40" class="pass" id="regEmail">
+        <p><span>*</span>手机号：</p>
+        <input type="text" name="" id="phone">
+        <img src="/public/images/right.png" width="40" class="pass" id="regPhone">
+        <p style="display:inline-block;">上传头像：</p>
+        <input type="file" id="logo" name="logo">
+        <img src='' id="img" />
+        <canvas id="myCanvas"></canvas>
+        <button type="text" name="" id="avatar">请选择</button>
+        <button id="apply">注册</button>
+        <img src="/public/images/load.gif" width="30" id="loading">
+        <a href="http://lg.blog.com/index.php/Index/index">
+            <p id="login">已有账号，登录>></p>
+        </a>
+    </div>
+    <div id="success">注册成功</div>
+        <div class="id_photos">
+    </div>
+    <script type="text/javascript" src="/public/js/jquery.js"></script>
+    <script type="text/javascript" src="/public/js/ajaxfileupload.js"></script>
+    <script type="text/javascript" src="/public/js/apply.js"></script>
+    <script type="text/javascript">
+         $('#logo').change(function() {
+                    //此处用了change事件，当选择好图片打开，关闭窗口时触发此事件  
+
+    })
+    </script>
+</body>
+
+</html>

@@ -12,22 +12,23 @@
             $this->load->helper('url_helper');
         }
         function index(){
-        $name = $_POST['name'];
+        $name = $this->input->post('name');
         $data['blog'] = $this->blog_model->get_name($name);
         $data['id'] =$data['blog']['id'];
-        $data['name'] =$data['blog']['name'];
+        $data['name'] =$data['blog']['username'];
         $data['password']=$data['blog']['password'];
-        $data['imgUrl'] = $data['blog']['imgUrl'];
-        $password = $_POST['password'];
-        $loginstatus = $_POST['status'];
+//        $data['imgUrl'] = $data['blog']['imgUrl'];
+        
+        $password = $this->input->post('password');
+        $loginstatus = $this->input->post['status'];
         //登录
         if ($name===$data['name'] && $password===$data['password']) {
-            $this->blog_model->loginIn($name,$loginstatus);
-            $this->blog_model->get_name($name);
-            $data['blogMsg'] = $this->blog_model->getpersonalMsg($name);
-            $data['idnum'] =$data['blogMsg']['idnum'];
-            $data['nameMsg'] =$data['blogMsg']['name'];
-            echo json_encode(array('name'=>$data['blogMsg']['name'],'ID：'=>$data['blogMsg']['idnum'],'url'=>$data['imgUrl']));
+//            $this->blog_model->loginIn($name,$loginstatus);
+//            $this->blog_model->get_name($name);
+//            $data['blogMsg'] = $this->blog_model->getpersonalMsg($name);
+//            $data['idnum'] =$data['blogMsg']['idnum'];
+//            $data['nameMsg'] =$data['blogMsg']['name'];
+            echo json_encode(array('name'=>$data['name'],'msg'=>'欢迎你'));
         }
     }
     //退出登录
