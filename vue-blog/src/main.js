@@ -6,7 +6,7 @@ import Home from './components/Home.vue';
 import Catalog from './components/Catalog.vue';
 import News from './components/News.vue';
 import Service from './components/Service.vue';
-import Aboutus from './components/Aboutus.vue';
+import Aboutme from './components/Aboutme.vue';
 import Test from './components/Test.vue';
 import Classify from './components/Classify.vue';
 import Foo from './Foo.vue';
@@ -18,7 +18,7 @@ Vue.use(VueResource)
 const router = new VueRouter({
     routes: [
       { path: '/home', component: Home },
-      { path: '/aboutus', component: Aboutus },
+      { path: '/aboutme', component: Aboutme },
       { path: '/service', component: Service },
       { path: '/news', component: News },
       { path: '/catalog', component: Catalog },

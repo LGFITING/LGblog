@@ -4,7 +4,7 @@
    <div id="header">
          <!-- <img src="../static/images/lg.jpg" alt="ME" width="100" id="ME"> -->
 <audio loop="loop" autoplay="autoplay">
-  <source src="../static/music/dreamofKing.mp3" type="audio/mp3" />
+<!--   <source src="../static/music/dreamofKing.mp3" type="audio/mp3" /> -->
 </audio>
   <div class="defind">
     <h3>肆的博客</h3>
@@ -18,7 +18,7 @@
       <li><span>|</span></li>
       <li>  <router-link to="/news">图文心情</router-link></li>
       <li><span>|</span></li>
-      <li><router-link to="/aboutus">关于我</router-link></li>
+      <li><router-link to="/aboutme">关于我</router-link></li>
     </ul>
   </div>
    </div>

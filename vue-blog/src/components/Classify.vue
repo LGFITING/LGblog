@@ -29,10 +29,11 @@
   mounted(){
       //数据请求
       var that=this;
-      that.$http.get('http://localhost/CodeIgniter/index.php/Blog/articleDepend'
+      that.$http.get('http://lg.blog.com/index.php/Blog/articleDepend'
                               ,{emulateJSON:true}).then(function (response) {
                                  let data = JSON.parse(response.body);
                                  this.options = data;
+                                 console.log(data);
 
                       }, function (response) {
 
@@ -52,8 +53,8 @@
       selected(){
           //数据请求
           console.log(this.selected);
-          var that=this;
-          that.$http.post('http://localhost/CodeIgniter/index.php/Blog/getArticleTitle'
+          let vm=this;
+          vm.$http.post('http://lg.blog.com/index.php/Blog/getArticleTitle'
                                   ,{"article_id":this.selected},{emulateJSON:true}).then(function (response) {
                                       let data = JSON.parse(response.body);
                                       if(data==''){
