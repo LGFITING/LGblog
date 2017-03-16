@@ -2,178 +2,198 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <title>登录测试</title>
-    <meta charset="utf-8">
-    <style type="text/css">
-    * {
-        margin: 0px;
-        padding: 0px;
-    }
-    
-    html {
-        box-sizing: border-box;
-        font-family: '微软雅黑';
-    }
-    
-    body {
-        background: url(/public/images/bg.jpg) no-repeat;
-        background: cover;
-    }
-    
-    button {
-        -webkit-tap-highlight-color: rgba(240, 240, 240, 0.7);
-    }
-    
-    a {
-        text-decoration: none;
-    }
-    
-    input {
-        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    }
-    
-    #loginWrapper {
-        width: 310px;
-        height: 350px;
-        border: 1px solid #D7DDDD;
-        margin: 200px auto;
-        background: #FBFDFC;
-    }
-    
-    #loginWrapper p {
-        height: 20px;
-        margin-left: 20px;
-        margin: 10px;
-    }
-    
-    #loginWrapper input {
-        width: 240px;
-        height: 30px;
-        line-height: 30px;
-        display: block;
-        margin: 0 auto;
-        background: #E9F3F4;
-        outline: none;
-        border: 1px solid #E4EEED;
-        font-weight: bold;
-    }
-    
-    #login {
-        width: 240px;
-        height: 40px;
-        background: #01B7B8;
-        display: block;
-        margin: 30px auto;
-        border: none;
-        border: 1px solid #20A3A6;
-        border-radius: 4px;
-        font-family: "微软雅黑";
-        font-size: 18px;
-        color: #fff;
-        cursor: pointer;
-    }
-    
-    #title {
-        position: absolute;
-        width: 200px;
-        height: 30px;
-        border: 1px solid #01B7B8;
-        margin: -6px 0 0 30px;
-        text-align: center;
-        line-height: 30px;
-        background: #01B7B8;
-        color: #fff;
-    }
-    
-    #triangle {
-        width: 0px;
-        height: 0px;
-        border: 3px solid #01B7B8;
-        position: absolute;
-        transform: rotate(45deg);
-        margin: -4px 0 0 27px;
-    }
-    
-    #loading {
-        display: none;
-        margin-left: 136px;
-        position: absolute;
-    }
-    
-    #apply {
-        color: #01B7B8;
-        text-align: center;
-    }
-    </style>
-</head>
-
-<body>
-    <div id="loginWrapper">
-        <div id="triangle"></div>
-        <div id="title">Apply administrator</div>
-        <p style="margin-top:70px;">Username:</p>
-        <input type="text" name="" id="name">
-        <p>Password:</p>
-        <input type="password" name="" id="password">
-        <button id="login">Login</button>
-        <img src="/public/images/load.gif" width="30" id="loading">
-        <a href="http://lg.blog.com/index.php/Index/apply">
-            <p id="apply">注册会员>></p>
-        </a>
-    </div>
-    <script type="text/javascript" src="/public/js/jquery.js"></script>
-    <script type="text/javascript" src="/public/js/jquery.cookie.js"></script>
-    <script type="text/javascript">
-    var dt = new Date();   
-dt.setSeconds(dt.getSeconds() + 60);   
-document.cookie = "cookietest=1; expires=" + dt.toGMTString();   
-var cookiesEnabled = document.cookie.indexOf("cookietest=") != -1;   
-if(!cookiesEnabled) {   
-    //没有启用cookie   
-    console.log("没有启用cookie ");  
-} else{  
-    //已经启用cookie   
-    console.log("已经启用cookie ");  
-} 
-    if ($.cookie(username)) {
-        var username = $.cookie('username2');
-        $("#name").val(username);
-    }
-    if ($.cookie(password)) {
-        var password = $.cookie('password2');
-        $("#password").val(password);
-    }
-
-    $("#login").click(function() {
-        $("#loading").show();
-        var name = $('#name').val();
-        var password = $("#password").val();
-        var status = 1;
-        $.ajax({
-            url: "http://lg.blog.com/index.php/Blog/index",
-            type: "POST",
-            dataType: "json",
-            // async: true,
-            data: {
-                "name": name,
-                "password": password,
-                "status": 1
-            },
-            success: function(data) {
-                $("#loading").hide();              
-                console.log("登录成功");
-        $.cookie('username2',name,{expires: 365, path: '/', domain: 'tom.com'});
-        $.cookie('password2',password,{expires: 365, path: '/', domain: 'tom.com'});
-                 window.location.href='http://localhost:8080/#';
-            },
-            error: function() {
-                $("#loading").hide();
-                alert('密码错误');
+    <head>
+        <title>登录测试</title>
+        <meta charset="utf-8">
+        <style type="text/css">
+            * {
+                margin: 0px;
+                padding: 0px;
             }
-        })
-    })
-    </script>
-</body>
+
+            html {
+                box-sizing: border-box;
+                font-family: '微软雅黑';
+            }
+
+            body {
+                background: url(/public/images/bg.jpg) no-repeat;
+                background: cover;
+            }
+
+            button {
+                -webkit-tap-highlight-color: rgba(240, 240, 240, 0.7);
+            }
+
+            a {
+                text-decoration: none;
+            }
+
+            input {
+                -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            }
+
+            #loginWrapper {
+                width: 310px;
+                height: 350px;
+                border: 1px solid #D7DDDD;
+                margin: 200px auto;
+                background: #FBFDFC;
+            }
+
+            #loginWrapper p {
+                height: 20px;
+                margin-left: 20px;
+                margin: 10px;
+            }
+
+            #loginWrapper input {
+                width: 240px;
+                height: 30px;
+                line-height: 30px;
+                display: block;
+                margin: 0 auto;
+                background: #E9F3F4;
+                outline: none;
+                border: 1px solid #E4EEED;
+                font-weight: bold;
+            }
+
+            #login {
+                width: 240px;
+                height: 40px;
+                background: #01B7B8;
+                display: block;
+                margin: 30px auto;
+                border: none;
+                border: 1px solid #20A3A6;
+                border-radius: 4px;
+                font-family: "微软雅黑";
+                font-size: 18px;
+                color: #fff;
+                cursor: pointer;
+            }
+
+            #title {
+                position: absolute;
+                width: 200px;
+                height: 30px;
+                border: 1px solid #01B7B8;
+                margin: -6px 0 0 30px;
+                text-align: center;
+                line-height: 30px;
+                background: #01B7B8;
+                color: #fff;
+            }
+
+            #triangle {
+                width: 0px;
+                height: 0px;
+                border: 3px solid #01B7B8;
+                position: absolute;
+                transform: rotate(45deg);
+                margin: -4px 0 0 27px;
+            }
+
+            #loading {
+                display: none;
+                margin-left: 136px;
+                position: absolute;
+            }
+
+            #apply {
+                color: #01B7B8;
+                text-align: center;
+            }
+            #success{
+                width: 150px;
+                height: 30px;
+                text-align: center;
+                background: #1EFA2D;
+                line-height: 30px;
+                position: fixed;
+                left: 50%;
+                transform: translate(-50%,0);
+                top: 140px;
+                display: none;
+                color: #fff;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="loginWrapper">
+            <div id="triangle"></div>
+            <div id="title">Apply administrator</div>
+            <p style="margin-top:70px;">Username:</p>
+            <input type="text" name="" id="name">
+            <p>Password:</p>
+            <input type="password" name="" id="password">
+            <button id="login">Login</button>
+            <img src="/public/images/load.gif" width="30" id="loading">
+            <a href="http://lg.blog.com/Index/apply">
+                <p id="apply">注册会员>></p>
+            </a>
+        </div>
+        <div id="success">登录成功</div>
+        <script type="text/javascript" src="/public/js/jquery.js"></script>
+        <script type="text/javascript" src="/public/js/jquery.cookie.js"></script>
+        <script type="text/javascript">
+            var dt = new Date();
+            dt.setSeconds(dt.getSeconds() + 60);
+            document.cookie = "cookietest=1; expires=" + dt.toGMTString();
+            var cookiesEnabled = document.cookie.indexOf("cookietest=") != -1;
+            if (!cookiesEnabled) {
+                //没有启用cookie   
+                console.log("没有启用cookie ");
+            } else {
+                //已经启用cookie   
+                console.log("已经启用cookie ");
+            }
+            if ($.cookie(username)) {
+                var username = $.cookie('username2');
+                $("#name").val(username);
+            }
+            if ($.cookie(password)) {
+                var password = $.cookie('password2');
+                $("#password").val(password);
+            }
+
+            $("#login").click(function () {
+                $("#loading").show();
+                var name = $('#name').val();
+                var password = $("#password").val();
+                var status = 1;
+                $.ajax({
+                    url: "http://lg.blog.com/index.php/Blog/index",
+                    type: "POST",
+                    dataType: "json",
+                    // async: true,
+                    data: {
+                        "name": name,
+                        "password": password,
+                        "status": 1
+                    },
+                    success: function (data) {
+                        $("#loading").hide();
+                        $.cookie('username2', name, {expires: 365, path: '/', domain: 'tom.com'});
+                        $.cookie('password2', password, {expires: 365, path: '/', domain: 'tom.com'});
+                        $("#success").fadeIn("fast");
+                        $("#success").animate({top: "240px"}, 500,function(){
+                            window.location.href = 'http://localhost:8080/#';
+                        });
+                        setTimeout(function () {
+                            $("#success").fadeOut();
+                            $("#success").css("top", "140px");                           
+                        });                      
+                    },
+                    error: function () {
+                        $("#loading").hide();
+                        alert('密码错误');
+                    }
+                })
+            })
+        </script>
+    </body>
 
 </html>

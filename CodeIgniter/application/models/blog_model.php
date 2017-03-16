@@ -39,12 +39,12 @@ class Blog_model extends CI_Model{
     }
     
     //获取文章分类
-    public function getArticleDepend(){
+    public function getArticleType(){
         $query = $this->db->get('articledepend');
         return $query->result_array();
     }
-    public function getArticleTitle($article_id){
-        $query = $this->db->get_where('article',array('sort_article_id'=>$article_id));
+    public function getArticle($articleType){
+        $query = $this->db->get_where('article',array('sort_article_id'=>$articleType));
         return $query->result_array();
     }
 }

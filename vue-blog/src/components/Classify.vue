@@ -3,14 +3,14 @@
 <div>
     {{msg}}：
     <select v-model="selected" :class="classA">
-        <option v-for="option in options" v-bind:value="option.sort_article_id">
+        <option v-for="option in options" v-bind:value="option.id">
             {{option.sort_article_name}}
         </option>
     </select>
 </div>
 <ul class="article">
   <li v-for="item in items">
-    <a>{{ item.article_name }}</a>
+    <a>{{ item.article_title }}</a>
   </li>
 </ul>
 </div>
@@ -21,7 +21,7 @@
       return{
         msg:'选择分类',
          selected: 1,
-         options: [],
+         options: {},
          classA:'',
          items:''
   }
@@ -29,7 +29,7 @@
   mounted(){
       //数据请求
       var that=this;
-      that.$http.get('http://lg.blog.com/index.php/Blog/articleDepend'
+      that.$http.get('http://lg.blog.com/Index/articleType'
                               ,{emulateJSON:true}).then(function (response) {
                                  let data = JSON.parse(response.body);
                                  this.options = data;
@@ -49,16 +49,14 @@
       }
   },
   watch:{
-      //监听model ,类似于jq中的change
       selected(){
           //数据请求
-          console.log(this.selected);
           let vm=this;
-          vm.$http.post('http://lg.blog.com/index.php/Blog/getArticleTitle'
-                                  ,{"article_id":this.selected},{emulateJSON:true}).then(function (response) {
+          vm.$http.post('http://lg.blog.com/Index/getArticle'
+                                  ,{"articleType":vm.selected},{emulateJSON:true}).then(function (response) {
                                       let data = JSON.parse(response.body);
                                       if(data==''){
-                                          data = [{article_name:'无相关文章'}]
+                                          data = [{article_title:'无相关文章'}]
                                       }
                                       this.items = data;
                           }, function (response) {
