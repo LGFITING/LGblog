@@ -29,7 +29,7 @@
         <input type="file" id="logo" name="logo">
         <img src='' id="img" />
         <canvas id="myCanvas"></canvas>
-        <button type="text" name="" id="avatar">请选择</button>
+        <button type="button" name="" id="avatar">请选择</button>
         <button id="apply">注册</button>
         <img src="/public/images/load.gif" width="30" id="loading">
         <a href="http://lg.blog.com">
@@ -41,12 +41,15 @@
     </div>
     <script type="text/javascript" src="/public/js/jquery.js"></script>
     <script type="text/javascript" src="/public/js/ajaxfileupload.js"></script>
-    <script type="text/javascript" src="/public/js/apply.js"></script>
+<!--    <script type="text/javascript" src="/public/js/apply.js"></script>-->
     <script type="text/javascript">
-         $('#logo').change(function() {
-                    //此处用了change事件，当选择好图片打开，关闭窗口时触发此事件  
-
-    })
+        $(function(){
+            $("#apply").click(function(){
+                $.post('http://lg.blog.com/Index/userApply',{
+                    userName:$("#name").val()
+                        });
+            });
+        })
     </script>
 </body>
 

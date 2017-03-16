@@ -29,7 +29,7 @@
   mounted(){
       //数据请求
       var that=this;
-      that.$http.get('http://lg.blog.com/Index/articleType'
+      that.$http.get('http://lg.blog.com/Article/articleType'
                               ,{emulateJSON:true}).then(function (response) {
                                  let data = JSON.parse(response.body);
                                  this.options = data;
@@ -52,13 +52,13 @@
       selected(){
           //数据请求
           let vm=this;
-          vm.$http.post('http://lg.blog.com/Index/getArticle'
+          vm.$http.post('http://lg.blog.com/Article/getArticle'
                                   ,{"articleType":vm.selected},{emulateJSON:true}).then(function (response) {
                                       let data = JSON.parse(response.body);
                                       if(data==''){
                                           data = [{article_title:'无相关文章'}]
                                       }
-                                      this.items = data;
+                                      vm.items = data;
                           }, function (response) {
                               alert('服务器繁忙');
                 });

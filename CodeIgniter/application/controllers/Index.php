@@ -6,26 +6,35 @@ class Index extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('blog_model');
+        $this->load->model('user_model');
         $this->load->helper('url_helper');
     }
 
-    function index()
+    public function index()
     {
         $this->load->view('index/login.html');
     }
 
-    function apply()
+    public function apply()
     {
         $this->load->view('index/apply.html');
     }
-    function articleType(){
-        $articleType = $this->blog_model->getArticleType();
-        echo json_encode($articleType);
-    }
-    function getArticle(){
-        $articleType = $this->input->post('articleType');
-        $article = $this->blog_model->getArticle($articleType);
-        echo json_encode($article);
+
+    public function userApply()
+    {
+        $username = $this->input->post('userName');
+        //检测用户名是否已被注册
+        $result = $this->user_model->checkUserName($username);
+        if ($result['username'] === $username) {
+            echo '用户名已经被注册';
+            return -1;
+        } else {
+            echo '用户名可以使用';
+        }
+        $password = $this->input->post('password');
+        $email = $this->input->post('email');
+        $phone = $this->input->post('phone');
+        $head_icon = $this->input->post('head_icon');
     }
 
 }

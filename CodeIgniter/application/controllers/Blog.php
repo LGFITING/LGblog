@@ -20,7 +20,7 @@
 //        $data['imgUrl'] = $data['blog']['imgUrl'];
         
         $password = $this->input->post('password');
-        $loginstatus = $this->input->post['status'];
+        $loginstatus = $this->input->post('status');
         //登录
         if ($name===$data['name'] && $password===$data['password']) {
 //            $this->blog_model->loginIn($name,$loginstatus);
