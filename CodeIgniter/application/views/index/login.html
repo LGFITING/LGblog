@@ -161,31 +161,37 @@
 
             $("#login").click(function () {
                 $("#loading").show();
-                var name = $('#name').val();
+                var username = $('#name').val();
                 var password = $("#password").val();
                 var status = 1;
                 $.ajax({
-                    url: "http://lg.blog.com/index.php/Blog/index",
-                    type: "POST",
+                    url: "http://lg.blog.com/Index/login",
+                    type: "post",
                     dataType: "json",
-                    // async: true,
                     data: {
-                        "name": name,
+                        "username": username,
                         "password": password,
                         "status": 1
                     },
                     success: function (data) {
-                        $("#loading").hide();
-                        $.cookie('username2', name, {expires: 365, path: '/', domain: 'tom.com'});
-                        $.cookie('password2', password, {expires: 365, path: '/', domain: 'tom.com'});
-                        $("#success").fadeIn("fast");
-                        $("#success").animate({top: "240px"}, 500,function(){
+                        if (data.status == 1) {
+                            $("#loading").hide();
+                            $.cookie('username2', username, {expires: 365, path: '/', domain: 'tom.com'});
+                            $.cookie('password2', password, {expires: 365, path: '/', domain: 'tom.com'});
+                            $("#success").fadeIn("fast");
+                            $("#success").animate({top: "240px"}, 500, function () {
                             window.location.href = 'http://localhost:8080/#';
-                        });
-                        setTimeout(function () {
-                            $("#success").fadeOut();
-                            $("#success").css("top", "140px");                           
-                        });                      
+                            });
+                            setTimeout(function () {
+                                $("#success").fadeOut();
+                                $("#success").css("top", "140px");
+                            });
+                        }
+                        else{
+                           $("#loading").hide(); 
+                           alert(data.msg);
+                        }
+
                     },
                     error: function () {
                         $("#loading").hide();

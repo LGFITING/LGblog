@@ -4,7 +4,7 @@
    <div id="header">
          <!-- <img src="../static/images/lg.jpg" alt="ME" width="100" id="ME"> -->
 <audio loop="loop" autoplay="autoplay">
-<!--   <source src="../static/music/dreamofKing.mp3" type="audio/mp3" /> -->
+  <source src="../static/music/dreamofKing.mp3" type="audio/mp3" />
 </audio>
   <div class="defind">
     <h3>肆的博客</h3>
@@ -23,6 +23,7 @@
   </div>
    </div>
 </header>
+     <div id="logout" @click='logOut'>退出登录</div>
 <content>
   <div id="content">
   <xivprofile name="刘贯"></xivprofile>
@@ -49,6 +50,15 @@ export default {
       xivprofile,
       test,
       classify
+    },
+    methods:{
+        logOut:function(){
+          let vm = this;
+          vm.$http.post('http://lg.blog.com/Index/logOut').then(function(response){
+            console.log(response);
+            window.location.href = 'http://lg.blog.com';
+          });
+        }
     }
 }
 </script>
@@ -103,8 +113,19 @@ audio{
   background: url('../static/images/sinablogb.jpg') -100px 0px no-repeat;
   /*background-position: center top;*/
 }
+#logout{
+  position: absolute;
+  width: 200px;
+  height: 30px;
+  top: 100px;
+  left: 1500px;
+  cursor: pointer;
+}
+#logout:hover{
+  color: #56BB89;
+}
 .defind{
-  position: relative;;
+  position: relative;
   left: 300px;
   top: 130px;
   width: 500px;

@@ -7,11 +7,12 @@ class User_model extends CI_Model {
         parent::__construct();
         $this->load->database();
     }
-
-    public function checkUserName($userName)
+   //注册验证 登录验证
+    public function checkUserName($username)
     {
-        $query = $this->db->get_where('user', array('username' => $userName));
+        $query = $this->db->get_where('user', array('username' => $username));
         return $query->row_array();
     }
+    
 
 }
